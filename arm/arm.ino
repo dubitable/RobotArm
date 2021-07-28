@@ -1,8 +1,9 @@
 #include <Servo.h>
 
-int SERVOS = 2;
-int pins[6] = {3,5,6,9,10,11};
-Servo servos[5];
+const int SERVOS = 5;
+int pins [SERVOS] = {3,5,6,9,11};
+String names [SERVOS] = {"Base", "Joint1", "Joint2", "Joint3", "Claw"};
+Servo servos [SERVOS];
 
 void rotation(int index, int amount){
   amount = index + amount;
@@ -35,9 +36,9 @@ void setup() {
   for (int i = 0; i < SERVOS; i++){
     servos[i].attach(pins[i]);
   }
+  rotation(0,  1);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //rotation(0, 2);
 }
